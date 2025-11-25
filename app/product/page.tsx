@@ -1,10 +1,16 @@
+"use client";
+
+import { useState } from "react";
 import { BiChevronLeft } from "react-icons/bi";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { MdOutlineThumbUp } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
+import { ReviewModal } from "../component/ReviewModals";
 
 const ProductPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div
       className="bg-white text-black relative"
@@ -57,7 +63,11 @@ const ProductPage = () => {
 
           {/* review count */}
           <div>
-            <span className="text-[9px] text-base font-normal">7 Reviews</span>
+            <span 
+              className="text-[9px] text-base font-normal"
+            >
+              7 Reviews
+            </span>
           </div>
 
         </div>
@@ -83,7 +93,7 @@ const ProductPage = () => {
         <div
           className="flex flex-row items-center justify-between"
         >
-          <span className=" text-[14px] font-bold">REVIEWS (7)</span>
+          <span className=" text-[14px] font-bold cursor-pointer" onClick={() => setIsModalOpen(true)}>REVIEWS (7)</span>
           <Link href="#" className="underline">View More &gt;</Link>
         </div>
 
@@ -287,6 +297,12 @@ const ProductPage = () => {
           </button>
         </div>
       </div>
+
+      {/* Review Modal */}
+      <ReviewModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
 
     </div>
   )
