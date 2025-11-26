@@ -83,15 +83,17 @@ const ProductContent = () => {
         >
 
           {/* stars */}
-          <div
-            className="flex flex-row gap-2 text-[#FBBF24]"
-          >
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaStar />
-            <FaRegStar className="text-gray-400 font-bold"/>
-          </div>
+          {reviewCount > 0 && (
+            <div
+              className="flex flex-row gap-2 text-[#FBBF24]"
+            >
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaStar />
+              <FaRegStar className="text-gray-400 font-bold"/>
+            </div>
+          )}
 
           {/* review count */}
           <div>
